@@ -1,0 +1,40 @@
+ {% load static %}
+ <section id="portfolio" class="portfolio">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>K.S. Fastners</h2>
+          <p>Products</p>
+        </div>
+
+       
+<a href="{% url 'port'%}" class='btn btn-danger mb-3' >View More</a>
+        <div class="row portfolio-container">
+        
+      {% for i in obj %}
+          {% if i.picture1.url %}
+           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+             <div class="portfolio-wrap">
+               <img src="{{i.picture1.url}}" class="img-fluid port" alt="">
+               <div class="portfolio-info">
+                 <h4>{{i.name}}</h4>
+                  <a href="{% url 'product' i.id%}" class='btn btn-outline-dark'>Click Here!</a>
+               </div>
+             </div>
+           </div>
+         {% endif%}
+        
+{% endfor %}
+          <style>
+            .port{
+              height: 300px;
+              width: 100%;
+            }
+          </style>
+          </div><a class='btn btn-danger  mb-3' href="{% url 'port' %}" >View More?</a>
+        
+
+      </div>
+
+      <hr/>
+    </section><!-- End Portfolio Section -->
